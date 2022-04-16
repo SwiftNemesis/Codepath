@@ -1,6 +1,6 @@
 # Project 7 - WordPress Pentesting
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 > Objective: Find, analyze, recreate, and document **five vulnerabilities** affecting an old version of WordPress
 
@@ -12,7 +12,6 @@ Time spent: **X** hours spent in total
     - Tested in version: 3.1.4
     - Fixed in version: 3.1.7
   - [ ] GIF Walkthrough: <img src="metasploit_file.gif">
-  - [ ] Steps to recreate: 
 
 ### 2. (Required) Vulnerability Name or ID
   - [ ] Summary: 
