@@ -11,7 +11,7 @@ Time spent: **X** hours spent in total
     - Vulnerability types: Metasploit
     - Tested in version: 3.1.4
     - Fixed in version: 3.1.7
-  - [ ] GIF Walkthrough: <img src="metasploit_file.gif  alt=Metasploit File>
+  - [ ] GIF Walkthrough: <img src="metasploit_file.gif">
   - [ ] Steps to recreate: 
 
 ### 2. (Required) Vulnerability Name or ID
