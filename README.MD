@@ -25,13 +25,17 @@ Time spent: **10** hours spent in total
 	10. ```set LHOST 192.168.65.3``` (Different in some cases, it's eth0 under ifconfig)
 	11. ```exploit``` (this will gain you access to the file system to edit php files)
 	
-### 2. (Required) Vulnerability Name or ID
-  - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
-  - [ ] Steps to recreate: 
+### 2. XSS Comment (Authorized)
+  - [x] Summary: 
+    - Vulnerability types: XSS using comments that are authorized on WP
+    - Tested in version: 4.1
+    - Fixed in version: 4.1.26
+  - [x] GIF Walkthrough: <img src="XSS_Comment_Scripting.gif">
+  - [x] Steps to recreate: 
+	1. **Login to Admin account on WordPress**
+	2. **Find a comment to post on**
+	3. **Post a javascript tag in the comment box**
+	4. Example: ```<script>alert('XSS!');</script>```
 ### 3. (Required) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types:
