@@ -1,18 +1,18 @@
 # Project 7 - WordPress Pentesting
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
-> Objective: Find, analyze, recreate, and document **five vulnerabilities** affecting an old version of WordPress
+> Objective: Find, analyze, recreate, and document **three vulnerabilities** affecting an old version of WordPress
 
 ## Pentesting Report
 
-### 1. (Required) Arbitrary File Upload
-  - [ ] Summary: Using Metasploit, allows the user to gain access to the file system.
+### 1. Arbitrary File Upload
+  - [x] Summary: Using Metasploit, allows the user to gain access to the file system.
     - Vulnerability types: Arbitrary File Upload
     - Tested in version: 3.1.3 (Reflex Gallery)
     - Fixed in version: 3.1.4 (Reflex Gallery)
-  - [ ] GIF Walkthrough: <img src="arbitrary_file.gif">
-  - Steps to recreate: 
+  - [x] GIF Walkthrough: <img src="arbitrary_file.gif">
+  - [x] Steps to recreate: 
 	1. ```server postgresql start```
 	2. ```msfdb init```
 	3. ```msfconsole```
