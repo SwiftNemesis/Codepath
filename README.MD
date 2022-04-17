@@ -12,7 +12,7 @@ Time spent: **X** hours spent in total
     - Tested in version: 3.1.3 (Reflex Gallery)
     - Fixed in version: 3.1.4 (Reflex Gallery)
   - [ ] GIF Walkthrough: <img src="arbitrary_file.gif">
-  - [ ] Steps to recreate: 
+  - Steps to recreate: 
 		1. '''Start service postgresql start'''
 		2. '''msfdb init'''
 		3. '''msfconsole'''
