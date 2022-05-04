@@ -1,24 +1,47 @@
-# VirtualBox and Kali
+# Honeypot Assignment
 
-**Homework Instructions**: 
+**Time spent:** **X** hours spent in total
 
-1. Create a GIF recording of you starting your new Kali VM. Show VirtualBox Manger, click Start on your Kali box and end the recording when it reaches the login prompt. If it's larger than 5 MB, try to remove any large swathes of redudant frames. Save it as `vbox_kali.gif`.
-2. Create a GIF recording of you running the following command block in your Kali Terminal. Copy it to a text editor first and **replace the first 2 variables, name and univ, with your real name and college name**, then copy/paste the code block into a Terminal. 
+**Objective:** Create a honeynet using MHN-Admin. Present your findings as if you were requested to give a brief report of the current state of Internet security. Assume that your audience is a current employer who is questioning why the company should allocate anymore resources to the IT security team.
 
-```
-name="Bryce Sowers"
-univ="University of Nevada Las Vegas"
+### MHN-Admin Deployment (Required)
 
-screenfetch
-echo $name'@'$univ
-```
+**Summary:** How did you deploy it? Did you use GCP, AWS, Azure, Vagrant, VirtualBox, etc.?
 
-Save the file as **screenfetch.gif**.
+<img src="mhn-admin.gif">
 
-**Challenges and Problems**: 
+### Dionaea Honeypot Deployment (Required)
 
-### Installing VirtualBox and Kali
-<img src="vbox_kali.gif" alt="Virtualbox Installation">
- 
-### Running screenfetch
-<img src="screenfetch.gif" alt="Running screenfetch">
+**Summary:** Briefly in your own words, what does dionaea do?
+
+<img src="dionaea-honeypot.gif">
+
+### Database Backup (Required) 
+
+**Summary:** What is the RDBMS that MHN-Admin uses? What information does the exported JSON file record?
+
+*Be sure to upload session.json directly to this GitHub repo/branch in order to get full credit.*
+
+### Deploying Additional Honeypot(s) (Optional)
+
+#### X Honeypot
+
+**Summary:** What does this honeypot simulate and do for a security researcher?
+
+<img src="x-honeypot.gif">
+
+### Malware Capture and Identification (Optional)
+
+#### X Malware
+
+**Summary:** How did you find it? Which honeypot captured it? What does each malware do?
+
+MD5 Hash: *Run `md5sum` on the file and record the hash here.*
+
+SHA1 Hash: *Run `sha1sum` on the file and record the hash here.*
+
+<img src="x-malware.gif">
+
+## Notes
+
+Describe any challenges encountered while doing the assignment.
