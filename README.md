@@ -59,7 +59,7 @@ gcloud compute ssh mhn-admin
 		sudo apt update
 		sudo apt install git python-magic -y
 #### Second, we'll be pulling MHN from github and running the shell file
-		cd /opt/
+`cd /opt/`
 		sudo git clone https://github.com/pwnlandia/mhn.git
 		cd mhn/
 		
