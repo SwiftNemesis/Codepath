@@ -49,15 +49,14 @@ gcloud compute instances create "mhn-admin" ^
 
 #### After running these commands, we'll connect to our VM using SSH
 
-```
+``` java
 gcloud compute ssh mhn-admin
 ```
 
 #### Once we SSH into the VM, we're going to install the MHN Admin Application :)
 
 #### First we will retrieve the latest packages using:
-	sudo apt update
-	sudo apt install git python-magic -y
+	sudo apt update && sudo apt install git python-magic -y
 #### Second, we'll be pulling MHN from github and running the shell file (one at a time)
 	cd /opt/
 	
