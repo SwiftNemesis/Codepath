@@ -60,18 +60,18 @@ gcloud compute ssh mhn-admin
 		sudo apt install git python-magic -y
 #### Second, we'll be pulling MHN from github and running the shell file
 `cd /opt/`
-		sudo git clone https://github.com/pwnlandia/mhn.git
-		cd mhn/
+`sudo git clone https://github.com/pwnlandia/mhn.git`
+`cd mhn/`
 		
-		sudo sed -i 's/Flask-SQLAlchemy==2.3.2/Flask-SQLAlchemy==2.5.1/g' server/requirements.txt
+`sudo sed -i 's/Flask-SQLAlchemy==2.3.2/Flask-SQLAlchemy==2.5.1/g' server/requirements.txt`
 		
-		sudo ./install.sh
+`sudo ./install.sh`
 		
 #### After this, it'll have you create give you "Y/N" prompts. Hit N for every single prompt.
 
 	
-**Superuser Email: Use Any Email.**
-**Superuser password: Use any password of your choosing.**
+##### Superuser Email: Use Any Email.
+##### Superuser password: Use any password of your choosing.
 	
 #### As stated before, hit n for the rest of the prompts. This process should take anywhere from 5-15 minutes.
 #### Now you have created a mhn-admin VM and are ready to create the Honeypot :)
