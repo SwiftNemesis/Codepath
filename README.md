@@ -1,6 +1,6 @@
 # Google Cloud Compute Honeypot using MHN-ADMIN
 
-**Time spent:** **5** hours spent in total
+**Time spent:** **15** hours spent in total
 
 ### For this Honeypot, we will be using Google Cloud Compute and the Google Cloud SDK on Windows.
 
@@ -228,7 +228,7 @@ You can also hit space bar in the console to see the progress it is at.
 ## Malware Capture and Identification
 
 **Summary:** We will finding the malware that was captured by the dinoaea honeypot, 
-and then checking it against the VirusTotal database and ClamAV (OpenSource Antivirus)
+and then checking it against the VirusTotal database and [ClamAV](https://www.clamav.net) (OpenSource Antivirus)
 
 It should be stored in `/opt/dionaea/var/lib/dionaea/binaries/`
 
@@ -248,7 +248,7 @@ sudo sha256sum fileName
 ```
 You may or may not need sudo depending on the permissions of the folder.
 
-#### 1st Strand of Malware
+### 1st Strand of Malware
 
 MD5 Hash: *70ccd9220cebb56eaa38b9f1bd1a1cd8*
 
@@ -262,7 +262,7 @@ This is the result found on VirusTotal by searching the associated md5 hash.
 
 This one was not caught by ClamAV, but in most scenarios it is caught. Let's see what's in store for the 2nd strand!
 
-#### 2nd Strand of Malware
+### 2nd Strand of Malware
 
 MD5 Hash: *844290834b6450425b146d4517cdf780*
 
@@ -301,7 +301,7 @@ Sourced from [Intezer](https://www.intezer.com/blog/malware-analysis/elf-malware
 
 This once again points out the everygrowing need to keep malware analysis a strong need within the anti-malware industry.
 
-#### 3rd Strand of Malware
+### 3rd Strand of Malware
 
 MD5 Hash: *ab27f6c7634e9efc13fb2db29216a0a8*
 
@@ -309,7 +309,17 @@ SHA1 Hash: *5ac015b797818474e64a57df9774bff984107dd5*
 
 SHA256 Hash: *c071278f921475bc6f252b10b771dda4948596ef6d81b689bd936a2a9058b5cc*
 
-#### Notes on finding captured malware (and my struggles)
+This is the result found on VirusTotal by searching the associated md5 hash.
+
+<img src="virus-total-3strand.png">
+
+Turns out, this is also an ELF malware. If you notice, it lists it as a `PUP` under some antiviruses such as Avast. 
+PUP stands for Potentially Unwanted Program, which is what I hope it would be classified as.
+
+As shown before, only 19/62 Antivirus' detected it which is another concern. ELF is elusive as ever.
+
+
+### Notes on finding captured malware (and my struggles)
 
 During my attempt to do malware analysis, I was struggling to find the correct direction.
 I found a useful command that may help you be able to find it as well if you struggle.
@@ -336,6 +346,8 @@ source of data for research such as anti-malware software.
 
 <img src="payloadsReport.png">
 
-Alonside this, I captured about Fifty different types of malware with all different types of MD5sum hashes.
+Alonside this, I captured about fifty different types of malware with all different types of MD5sum hashes.
 
 <img src="malware-capture.gif">
+
+The majority of these however are WannaCry, which is the common ransomeware worm.
