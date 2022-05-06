@@ -49,7 +49,7 @@ gcloud compute instances create "mhn-admin" ^
 
 #### After running these commands, we'll connect to our VM using SSH
 
-```javascript
+```
 gcloud compute ssh mhn-admin
 ```
 
@@ -76,10 +76,11 @@ gcloud compute ssh mhn-admin
 #### As stated before, hit n for the rest of the prompts. This process should take anywhere from 5-15 minutes.
 #### Now you have created a mhn-admin VM and are ready to create the Honeypot :)
 <img src="mhn-admin.gif">
+<img src="mhn-admin-website.gif">
 
 ### Dionaea Honeypot Deployment 
 
-**Summary:** Briefly in your own words, what does dionaea do?
+**Summary:** Alongside the MHN-Admin, we'll be deploying a Dionaea Honeypot
 
 <img src="dionaea-honeypot.gif">
 
