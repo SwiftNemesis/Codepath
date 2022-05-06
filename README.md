@@ -208,6 +208,14 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 <img src="x-honeypot.gif">
 
+## Extra: Run your own NMAP Attack
+
+#### As a side example, you can run your own nmap attacks on your honeypot
+	
+	nmap -A -T4 x.x.x.x
+	
+`x.x.x.x is the honeypot ip address listed on GCP or the MHN-ADMIN Sensor panel`
+
 ### Malware Capture and Identification (Optional)
 
 #### X Malware
