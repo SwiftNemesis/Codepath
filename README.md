@@ -58,9 +58,11 @@ gcloud compute ssh mhn-admin
 **Once we SSH into the VM, we're going to install the MHN Admin Application :)**
 
 **First we will retrieve the latest packages using:**
+
 	```sudo apt update && sudo apt install git python-magic -y```
+	
 **Second, we'll be pulling MHN from github and running the shell file (one at a time)**
-```
+
 	cd /opt/
 	
 	sudo git clone https://github.com/pwnlandia/mhn.git
@@ -70,7 +72,7 @@ gcloud compute ssh mhn-admin
 	sudo sed -i 's/Flask-SQLAlchemy==2.3.2/Flask-SQLAlchemy==2.5.1/g' server/requirements.txt
 		
 	sudo ./install.sh
-```	
+
 **After this, it'll have you create give you "Y/N" prompts. Hit N for every single prompt.**
 
 	Superuser Email: Use Any Email.
@@ -89,7 +91,7 @@ gcloud compute ssh mhn-admin
 
 **Lets create a honeypot tagged firewall with all open ports**
 
-	```gcloud compute firewall-rules create wideopen ^
+	gcloud compute firewall-rules create wideopen ^
 		--description="Allow TCP and UDP from Anywhere" ^
 		--direction ingress ^
 		--priority=1000 ^
@@ -97,11 +99,11 @@ gcloud compute ssh mhn-admin
 		--action=allow ^
 		--rules=tcp,udp ^
 		--source-ranges=0.0.0.0/0 ^
-		--target-tags="honeypot"```
+		--target-tags="honeypot"
 
 **Now let's create the first honeypot**
 
-	```gcloud compute instances create "honeypot-1" ^
+	gcloud compute instances create "honeypot-1" ^
 		--machine-type "n1-standard-1" ^
 		--subnet "default" ^
 		--maintenance-policy "MIGRATE" ^
@@ -110,7 +112,7 @@ gcloud compute ssh mhn-admin
 		--image-project "ubuntu-os-cloud" ^
 		--boot-disk-size "10" ^
 		--boot-disk-type "pd-standard" ^
-		--boot-disk-device-name "honeypot-1"```
+		--boot-disk-device-name "honeypot-1"
 
 **In order to access the newly created honeypot, you can do the same as before with SSH :)**
 
@@ -171,7 +173,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 **To start off, we will be rerunning the commands from the original honeypot with slightly different naming.**
 
-	```gcloud compute instances create "honeypot-2" ^
+	gcloud compute instances create "honeypot-2" ^
 		--machine-type "n1-standard-1" ^
 		--subnet "default" ^
 		--maintenance-policy "MIGRATE" ^
@@ -180,9 +182,9 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 		--image-project "ubuntu-os-cloud" ^
 		--boot-disk-size "10" ^
 		--boot-disk-type "pd-standard" ^
-		--boot-disk-device-name "honeypot-2"```
+		--boot-disk-device-name "honeypot-2"
 		
-	```gcloud compute instances create "honeypot-3" ^
+	gcloud compute instances create "honeypot-3" ^
 		--machine-type "n1-standard-1" ^
 		--subnet "default" ^
 		--maintenance-policy "MIGRATE" ^
@@ -191,7 +193,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 		--image-project "ubuntu-os-cloud" ^
 		--boot-disk-size "10" ^
 		--boot-disk-type "pd-standard" ^
-		--boot-disk-device-name "honeypot-3"```
+		--boot-disk-device-name "honeypot-3"
 		
 **Next, we have to ssh into each honeypot respectively**
 
