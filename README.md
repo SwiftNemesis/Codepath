@@ -34,7 +34,7 @@ gcloud compute firewall-rules create hpfeeds ^
     --target-tags="mhn-admin"
 ```
 
-**Next we'll run the command that setups the VM in GCP **
+**Next we'll run the command that setups the VM in GCP**
 
 ```
 gcloud compute instances create "mhn-admin" ^
@@ -49,7 +49,7 @@ gcloud compute instances create "mhn-admin" ^
     --boot-disk-device-name "mhn-admin"
 ```
 
-**After running these commands, we'll connect to our VM using SSH **
+**After running these commands, we'll connect to our VM using SSH**
 
 ```
 gcloud compute ssh mhn-admin
@@ -71,7 +71,7 @@ gcloud compute ssh mhn-admin
 		
 	sudo ./install.sh
 ```	
-**After this, it'll have you create give you "Y/N" prompts. Hit N for every single prompt. **
+**After this, it'll have you create give you "Y/N" prompts. Hit N for every single prompt.**
 
 	Superuser Email: Use Any Email.
 	Superuser password: Use any password of your choosing.
@@ -118,11 +118,11 @@ gcloud compute ssh mhn-admin
 
 <img src="dionaea-honeypot.gif">
 
-** Now we're going to install the honeypot application. **
+** Now we're going to install the honeypot application.**
 
 `In order to do so, we're going to use the "Ubuntu/Raspberry Pi - Dionaea" deploy command under Deploy on your MHN Server`
 
-**Here is an example command: **
+**Here is an example command:**
 
 ```
 wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh http://x.x.x.x LwvoSENw
@@ -213,7 +213,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 ## Extra: Run your own NMAP Attack
 
-**As a side example, you can run your own nmap attacks on your honeypot **
+**As a side example, you can run your own nmap attacks on your honeypot**
 	
 	nmap -A -T4 x.x.x.x
 	
@@ -285,16 +285,16 @@ this ELF malware stored in their database. It's a linux based malware that has r
 
 As shown in the article on intezer, ELF malware uses 1 of 3 exploits to break into a system.
 
-**1. Vulnerability exploit **
+**1. Vulnerability exploit**
 
 A lot of what ELF malware targets is misconfiguration, as well as exploits such as SQLi in order to dump databases or break into systems. 
 
-**2. Valid Credentials **
+**2. Valid Credentials**
 
 Along with this, misconfiguration can play a big part in being infected with ELF. It can take advantage of valid credentials, whether it's compromised 
 or credentials from the software default. This can be used to access things like SSH and maybe cause a priviledge escalation issue.
 
-**3. Trusted realtionships abuse **
+**3. Trusted realtionships abuse**
 
 With valid credentials, it can also be exploited on the side of third party organizations that have direct access to the target system. 
 This is also a concern for priviledge escalation once a server is compromised. It can be used to get valid credentials that can then target 
