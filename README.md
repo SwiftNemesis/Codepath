@@ -10,7 +10,7 @@
 
 You can setup a free trial at: `https://cloud.google.com/compute`
 
-**To start off, we'll be creating the open ports necessary to configure MHN Admin (WINDOWS GOOGLE CLOUD SDK) **
+**To start off, we'll be creating the open ports necessary to configure MHN Admin (WINDOWS GOOGLE CLOUD SDK)**
 `In the case that you're using Linux, replace the "^" with "\"`
 ```
 gcloud compute firewall-rules create http ^
