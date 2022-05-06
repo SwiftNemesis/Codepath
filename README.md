@@ -114,7 +114,7 @@ gcloud compute ssh mhn-admin
 #### Now we're going to install the honeypot application. In order to do so, we're going to use the "Ubuntu/Raspberry Pi - Dionaea" deploy command under Deploy on your MHN Server (Shown in the last gif)
 
 `Here is an example command:`
-	wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh
+```wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh```
 `x.x.x.x = The IP address of your MHN Admin VM`
 
 #### Now that it's installed, look under the Sensors tab on your MHN-admin website. Honeypot-1 should appear
