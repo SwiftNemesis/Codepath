@@ -1,4 +1,4 @@
-# Honeypot Assignment
+# Google Cloud Compute Honeypot using MHN-ADMIN
 
 **Time spent:** **5** hours spent in total
 
@@ -168,27 +168,27 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 #### To start off, we will be rerunning the commands from the original honeypot with slightly different naming.
 
-	```gcloud compute instances create "honeypot-2" ^
-		--machine-type "n1-standard-1" ^
-		--subnet "default" ^
-		--maintenance-policy "MIGRATE" ^
-		--tags "honeypot" ^
-		--image-family "ubuntu-minimal-1804-lts" ^
-		--image-project "ubuntu-os-cloud" ^
-		--boot-disk-size "10" ^
-		--boot-disk-type "pd-standard" ^
-		--boot-disk-device-name "honeypot-2"```
+```gcloud compute instances create "honeypot-2" ^
+	--machine-type "n1-standard-1" ^
+	--subnet "default" ^
+	--maintenance-policy "MIGRATE" ^
+	--tags "honeypot" ^
+	--image-family "ubuntu-minimal-1804-lts" ^
+	--image-project "ubuntu-os-cloud" ^
+	--boot-disk-size "10" ^
+	--boot-disk-type "pd-standard" ^
+	--boot-disk-device-name "honeypot-2"```
 		
-	```gcloud compute instances create "honeypot-3" ^
-		--machine-type "n1-standard-1" ^
-		--subnet "default" ^
-		--maintenance-policy "MIGRATE" ^
-		--tags "honeypot" ^
-		--image-family "ubuntu-minimal-1804-lts" ^
-		--image-project "ubuntu-os-cloud" ^
-		--boot-disk-size "10" ^
-		--boot-disk-type "pd-standard" ^
-		--boot-disk-device-name "honeypot-3"```
+```gcloud compute instances create "honeypot-3" ^
+	--machine-type "n1-standard-1" ^
+	--subnet "default" ^
+	--maintenance-policy "MIGRATE" ^
+	--tags "honeypot" ^
+	--image-family "ubuntu-minimal-1804-lts" ^
+	--image-project "ubuntu-os-cloud" ^
+	--boot-disk-size "10" ^
+	--boot-disk-type "pd-standard" ^
+	--boot-disk-device-name "honeypot-3"```
 		
 #### Next, we have to ssh into each honeypot respectively
 
