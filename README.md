@@ -9,7 +9,7 @@
 **Summary:** Today, we'll be using GCP to deploy a MHN-Admin Environment for our Honeypot.
 
 #### To start off, we'll be creating the open ports necessary to configure MHN Admin (WINDOWS GOOGLE CLOUD SDK)
-`In the case that you're using Linux, replace the "^" with "\"`
+`In the case that you're using Linux, replace the "^" with "^"`
 ```
 gcloud compute firewall-rules create http ^
     --allow tcp:80 ^
@@ -35,19 +35,20 @@ gcloud compute firewall-rules create hpfeeds ^
 ####Next we'll run the command that setups the VM in GCP
 
 ```
-gcloud compute instances create "mhn-admin" \
-    --machine-type "n1-standard-1" \
-    --subnet "default" \
-    --maintenance-policy "MIGRATE" \
-    --tags "mhn-admin" \
-    --image-family "ubuntu-minimal-1804-lts" \
-    --image-project "ubuntu-os-cloud" \
-    --boot-disk-size "10" \
-    --boot-disk-type "pd-standard" \
+gcloud compute instances create "mhn-admin" ^
+    --machine-type "n1-standard-1" ^
+    --subnet "default" ^
+    --maintenance-policy "MIGRATE" ^
+    --tags "mhn-admin" ^
+    --image-family "ubuntu-minimal-1804-lts" ^
+    --image-project "ubuntu-os-cloud" ^
+    --boot-disk-size "10" ^
+    --boot-disk-type "pd-standard" ^
     --boot-disk-device-name "mhn-admin"
 ```
 
 ####After running these commands, we'll connect to our VM using SSH
+
 ```
 gcloud compute ssh mhn-admin
 ```
