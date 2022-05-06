@@ -4,7 +4,7 @@
 
 ### For this Honeypot, we will be using Google Cloud Compute and the Google Cloud SDK on Windows.
 
-### MHN-Admin Deployment
+## MHN-Admin Deployment
 
 **Summary:** Today, we'll be using GCP to deploy a MHN-Admin Environment for our Honeypot.
 
@@ -80,7 +80,7 @@ gcloud compute ssh mhn-admin
 #### The below gif shows you how to access the MHN-Admin website console using the username and password you created.
 <img src="mhn-admin-website.gif">
 
-### Dionaea Honeypot Deployment 
+## Dionaea Honeypot Deployment 
 
 **Summary:** Alongside the MHN-Admin, we'll be deploying a Dionaea Honeypot. This Honeypot will collect malware and attack data through the MHN application through using all open ports.
 
@@ -132,7 +132,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 <img src="dionaea-honeypot-sensor.gif">
 
 
-### Database Backup
+## Database Backup
 
 **Summary:** We will export the data records from the honeypots. It stores itself in a MongoDB format in a session.json file we will create.
 
@@ -162,7 +162,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 <img src=session-json-example.gif>
 
-### Deploying Additional Honeypots
+## Deploying Additional Honeypots
 
 **Summary:** Now we are going to create two additional Honeypots. This is a pretty simple process
 
