@@ -218,6 +218,8 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 	
 `x.x.x.x is the honeypot ip address listed on GCP or the MHN-ADMIN Sensor panel`
 
+The NMAP attack can take anywhere from 5-15 minutes, so don't be discouraged if it's taking a long time. 
+You can also hit space bar in the console to see the progress it is at.
 
 ### Malware Capture and Identification
 
@@ -238,6 +240,6 @@ It's intriguing to see how much automatic hacking there is out on the web. This 
 for research when it comes to figuring out how to deal with malware. It's an especially plentiful 
 source of data for research such as anti-malware software.
 
-<img src="payloadsReport.png>
+<img src="payloadsReport.png">
 
 Describe any challenges encountered while doing the assignment.
