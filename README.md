@@ -228,12 +228,14 @@ You can also hit space bar in the console to see the progress it is at.
 ## Malware Capture and Identification
 
 **Summary:** We will finding the malware that was captured by the dinoaea honeypot, 
-and then checking it against the VirusTotal database and [ClamAV](https://www.clamav.net) (OpenSource Antivirus)
+and then checking it against the [VirusTotal](https://www.virustotal.com/gui/home/search) database and [ClamAV](https://www.clamav.net) (OpenSource Antivirus)
 
 It should be stored in `/opt/dionaea/var/lib/dionaea/binaries/`
 
 As we can see below, running ClamAV allowed us to see how many traces of Malware it recognized. 
 It missed about 3 traces of malware, which is room for concern.
+
+**OF NOTE:** a majority of these are actually WannaCry which is an extremely common self duplicating randomware worm.
 
 <img src="clamscan-image.png">
 
@@ -336,6 +338,41 @@ It should be stored in `/opt/dionaea/var/lib/dionaea/binaries/`
 In order to find the count of number of files in the directory, you can use the useful command:
 
 `ls | wc -l`
+
+### Some extra findings and research on WannaCry
+
+#### What is it?
+WannaCry is a type of ransomeware that consists of multiple components. In 
+most cases, malware that contains multiple components in injected in the form of a dropper; a self contained program that extracts the other parts of the application from within. 
+There are three components.
+
+1. An application that encrypts and decrypts data
+2. Files contaning encryption keys
+3. A copy of Tor
+
+#### How does it infect?
+For the WannaCry worm, it uses SMB explotation (Server Message Block) in order to infect a device or server. 
+According to an article written on CSO, the NSA became aware of the exploit and created an exploitation called `EternalBlue`. 
+This was eventually leaked and was exploited by a hacker group called `Shadow Brokers`. Microsoft was aware of the vulnerability about a month 
+beforehand and had patched it, but there were still plenty of systems that were left vulnerable to `EternalBlue`.
+
+#### What does it do?
+The WannaCry ransomware is a crypto malware that encrypts important file formats such as Micoroft Office files, MP3, MKV, and other important file extensions. 
+This leaves it unable to be used by the user, and usually has a ransom paid in bitcoin in order to decrypt the files. 
+
+#### Is it still active and what has been done about it?
+
+The WannaCry ransomware is still active in waves today, but it largely has been blundered by a sinkhole. 
+This sinkhole was created by **Marcus Hutchins** and **Jamie Hankins** at the company Kryptos Logic in LA. 
+WannaCry itself tries to connect to a domain in it's code, which if it cannot connect, triggers the drop to occur. 
+Because of this, the two malware researchers found a kill switch built in that if it connected to the domain, it would create a sinkhole for the ransomware. 
+They sucessfully did this by registering the domain, which in turn made it connect and cause WannaCry to not deploy. 
+Similar to a **Logic bomb**, if the domain was connected, it would cause the malware to not deploy at all.
+
+#### Sources:
+1. [CSO](https://www.csoonline.com/article/3227906/what-is-wannacry-ransomware-how-does-it-infect-and-who-was-responsible.html)
+2. [TechCrunch](https://techcrunch.com/2019/07/08/the-wannacry-sinkhole/)
+3. [Mimecast](https://www.mimecast.com/blog/all-you-need-to-know-about-wannacry-ransomware/)
 
 ## Results from May 3rd-6th
 
