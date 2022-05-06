@@ -221,17 +221,111 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 The NMAP attack can take anywhere from 5-15 minutes, so don't be discouraged if it's taking a long time. 
 You can also hit space bar in the console to see the progress it is at.
 
-### Malware Capture and Identification
+#### Visual NMAP Attack
 
-#### X Malware
+<img src="NMAP-test.png">
 
-**Summary:** How did you find it? Which honeypot captured it? What does each malware do?
+## Malware Capture and Identification
 
-MD5 Hash: *Run `md5sum` on the file and record the hash here.*
+**Summary:** We will finding the malware that was captured by the dinoaea honeypot, 
+and then checking it against the VirusTotal database and ClamAV (OpenSource Antivirus)
 
-SHA1 Hash: *Run `sha1sum` on the file and record the hash here.*
+It should be stored in `/opt/dionaea/var/lib/dionaea/binaries/`
 
-<img src="x-malware.gif">
+As we can see below, running ClamAV allowed us to see how many traces of Malware it recognized. 
+It missed about 3 traces of malware, which is room for concern.
+
+<img src="clamscan-image.png">
+
+Lets analyze the 3 that it missed.
+
+In order to find the Hashes of the file, run these commands.
+
+```
+sudo md5sum fileName
+sudo sha1sum fileName
+sudo sha256sum fileName
+```
+You may or may not need sudo depending on the permissions of the folder.
+
+#### 1st Strand of Malware
+
+MD5 Hash: *70ccd9220cebb56eaa38b9f1bd1a1cd8*
+
+SHA1 Hash: *17ebd69cc7302fe5b44015386054eb87fe73c3ce*
+
+SHA256 Hash: *815eccf206bc39d67ad9c903c823cc76c59ebb5e0e24ff1028b5242c53686a3a*
+
+This is the result found on VirusTotal by searching the associated md5 hash.
+
+<img src="virus-total-1strand.png">
+
+This one was not caught by ClamAV, but in most scenarios it is caught. Let's see what's in store for the 2nd strand!
+
+#### 2nd Strand of Malware
+
+MD5 Hash: *844290834b6450425b146d4517cdf780*
+
+SHA1 Hash: *df70cdb324a653a02d77c7b7cdc1e595852c5200*
+
+SHA256 Hash: *303a36a13238eaaa8ac4241252225db319f47d4f12567084dc2e1c08c98e4c90*
+
+This is the result found on VirusTotal by searching the associated md5 hash.
+
+<img src="virus-total-2strand.png">
+
+In this scenario, this is an ELF type of malware. For further information on ELF, you can checkout 
+[intezer](https://www.intezer.com/blog/malware-analysis/elf-malware-analysis-101-linux-threats-no-longer-an-afterthought/).
+There's a big challenge with analyzing ELF malware. There's not tons of documentation on it and it's easy to get lost in. 
+It's also not heavily detected by antimalware services. As we saw in the example, there was only about 12/62 antiviruses that have
+this ELF malware stored in their database. It's a linux based malware that has remained off the radar in a lot of scenarios.
+
+As shown in the article on intezer, ELF malware uses 1 of 3 exploits to break into a system.
+
+#### 1. Vulnerability exploit
+
+A lot of what ELF malware targets is misconfiguration, as well as exploits such as SQLi in order to dump databases or break into systems. 
+
+#### 2. Valid Credentials
+
+Along with this, misconfiguration can play a big part in being infected with ELF. It can take advantage of valid credentials, whether it's compromised 
+or credentials from the software default. This can be used to access things like SSH and maybe cause a priviledge escalation issue.
+
+#### 3. Trusted realtionships abuse
+
+With valid credentials, it can also be exploited on the side of third party organizations that have direct access to the target system. 
+This is also a concern for priviledge escalation once a server is compromised. It can be used to get valid credentials that can then target 
+weaker targets below said credentials.
+
+Sourced from [Intezer](https://www.intezer.com/blog/malware-analysis/elf-malware-analysis-101-linux-threats-no-longer-an-afterthought/)
+
+This once again points out the everygrowing need to keep malware analysis a strong need within the anti-malware industry.
+
+#### 3rd Strand of Malware
+
+MD5 Hash: *ab27f6c7634e9efc13fb2db29216a0a8*
+
+SHA1 Hash: *5ac015b797818474e64a57df9774bff984107dd5*
+
+SHA256 Hash: *c071278f921475bc6f252b10b771dda4948596ef6d81b689bd936a2a9058b5cc*
+
+#### Notes on finding captured malware (and my struggles)
+
+During my attempt to do malware analysis, I was struggling to find the correct direction.
+I found a useful command that may help you be able to find it as well if you struggle.
+
+`sudo find / -type f -exec md5sum {} + | sudo grep '^996c2b2ca30180129c69352a3a3515e4'`
+
+In this scenario, this line executes and finds the file with that exact md5 checksum.
+You can change `/` to be whatever directory and change `'^996c2b2ca30180129c69352a3a3515e4` will be
+`'^md5hash'`
+
+Since you have the list of payloads, this can you help you find the directory it's stored in.
+It should be stored in `/opt/dionaea/var/lib/dionaea/binaries/`
+
+In order to find the count of number of files in the directory, you can use the useful command:
+
+`ls | wc -l`
 
 ## Results from May 3rd-6th
 
@@ -242,4 +336,6 @@ source of data for research such as anti-malware software.
 
 <img src="payloadsReport.png">
 
-Describe any challenges encountered while doing the assignment.
+Alonside this, I captured about Fifty different types of malware with all different types of MD5sum hashes.
+
+<img src="malware-capture.gif">
