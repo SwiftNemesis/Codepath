@@ -9,7 +9,7 @@
 **Summary:** Today, we'll be using GCP to deploy a MHN-Admin Environment for our Honeypot.
 
 #### To start off, we'll be creating the open ports necessary to configure MHN Admin (WINDOWS GOOGLE CLOUD SDK)
-`In the case that you're using Linux, replace the "^" with "^"`
+`In the case that you're using Linux, replace the "^" with "\"`
 ```
 gcloud compute firewall-rules create http ^
     --allow tcp:80 ^
@@ -56,16 +56,18 @@ gcloud compute ssh mhn-admin
 #### Once we SSH into the VM, we're going to install the MHN Admin Application :)
 
 #### First we will retrieve the latest packages using:
-		sudo apt update
-		sudo apt install git python-magic -y
-#### Second, we'll be pulling MHN from github and running the shell file
-		cd /opt/
-		sudo git clone https://github.com/pwnlandia/mhn.git
-		cd mhn/
+	sudo apt update
+	sudo apt install git python-magic -y
+#### Second, we'll be pulling MHN from github and running the shell file (one at a time)
+	cd /opt/
+	
+	sudo git clone https://github.com/pwnlandia/mhn.git
+	
+	cd mhn/
 		
-		sudo sed -i 's/Flask-SQLAlchemy==2.3.2/Flask-SQLAlchemy==2.5.1/g' server/requirements.txt
+	sudo sed -i 's/Flask-SQLAlchemy==2.3.2/Flask-SQLAlchemy==2.5.1/g' server/requirements.txt
 		
-		sudo ./install.sh
+	sudo ./install.sh
 		
 #### After this, it'll have you create give you "Y/N" prompts. Hit N for every single prompt.
 
