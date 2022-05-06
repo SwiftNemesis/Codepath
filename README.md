@@ -216,6 +216,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 	
 `x.x.x.x is the honeypot ip address listed on GCP or the MHN-ADMIN Sensor panel`
 
+
 ### Malware Capture and Identification (Optional)
 
 #### X Malware
