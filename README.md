@@ -122,7 +122,7 @@ gcloud compute ssh mhn-admin
 ##### Here is an example command:
 
 ```
-wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh
+wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh http://x.x.x.x LwvoSENw
 ```
 
 `x.x.x.x = The IP address of your MHN Admin VM`
@@ -140,9 +140,47 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 ### Deploying Additional Honeypot(s) (Optional)
 
-#### X Honeypot
+**Summary:** Now we are going to create two additional Honeypots. This is a pretty simple process
 
-**Summary:** What does this honeypot simulate and do for a security researcher?
+#### To start off, we will be rerunning the commands from the original honeypot with slightly different naming.
+
+	```gcloud compute instances create "honeypot-2" ^
+		--machine-type "n1-standard-1" ^
+		--subnet "default" ^
+		--maintenance-policy "MIGRATE" ^
+		--tags "honeypot" ^
+		--image-family "ubuntu-minimal-1804-lts" ^
+		--image-project "ubuntu-os-cloud" ^
+		--boot-disk-size "10" ^
+		--boot-disk-type "pd-standard" ^
+		--boot-disk-device-name "honeypot-2"```
+		
+	```gcloud compute instances create "honeypot-3" ^
+		--machine-type "n1-standard-1" ^
+		--subnet "default" ^
+		--maintenance-policy "MIGRATE" ^
+		--tags "honeypot" ^
+		--image-family "ubuntu-minimal-1804-lts" ^
+		--image-project "ubuntu-os-cloud" ^
+		--boot-disk-size "10" ^
+		--boot-disk-type "pd-standard" ^
+		--boot-disk-device-name "honeypot-3"```
+		
+#### Next, we have to ssh into each honeypot respectively
+
+`gcloud compute ssh honeypot-2`
+
+`gcloud compute ssh honeypot-3`
+	
+#### Next, we have to install the sensors once again using the wget command line for each honeypot
+
+```
+wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh http://x.x.x.x LwvoSENw
+```
+
+`x.x.x.x = The IP address of your MHN Admin VM`
+	
+#### Here is a visual example
 
 <img src="x-honeypot.gif">
 
