@@ -154,7 +154,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 `gcloud compute scp mhn-admin:/home/"your username"/session.json ./session.json`
 
-#### In your Session.json file, the lines should look like this from the MongoDB
+**In your Session.json file, the lines should look like this from the MongoDB**
 
 ```
 {"_id":{"$oid":"626f8a77616a1e65181af2e2"},"protocol":"pcap","hpfeed_id":{"$oid":"626f8a75616a1e65181af2e1"},"timestamp":{"$date":"2022-05-02T07:38:29.651Z"},"source_ip":"81.17.23.138","source_port":52835,"destination_port":81,"identifier":"c22872be-c9ea-11ec-a047-42010a8a0004","honeypot":"dionaea"}
@@ -168,9 +168,9 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 **Summary:** Now we are going to create two additional Honeypots. This is a pretty simple process
 
-#### To start off, we will be rerunning the commands from the original honeypot with slightly different naming.
+** To start off, we will be rerunning the commands from the original honeypot with slightly different naming.**
 
-	gcloud compute instances create "honeypot-2" ^
+	```gcloud compute instances create "honeypot-2" ^
 		--machine-type "n1-standard-1" ^
 		--subnet "default" ^
 		--maintenance-policy "MIGRATE" ^
@@ -179,9 +179,9 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 		--image-project "ubuntu-os-cloud" ^
 		--boot-disk-size "10" ^
 		--boot-disk-type "pd-standard" ^
-		--boot-disk-device-name "honeypot-2"
+		--boot-disk-device-name "honeypot-2"```
 		
-	gcloud compute instances create "honeypot-3" ^
+	```gcloud compute instances create "honeypot-3" ^
 		--machine-type "n1-standard-1" ^
 		--subnet "default" ^
 		--maintenance-policy "MIGRATE" ^
@@ -190,7 +190,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 		--image-project "ubuntu-os-cloud" ^
 		--boot-disk-size "10" ^
 		--boot-disk-type "pd-standard" ^
-		--boot-disk-device-name "honeypot-3"
+		--boot-disk-device-name "honeypot-3"```
 		
 #### Next, we have to ssh into each honeypot respectively
 
