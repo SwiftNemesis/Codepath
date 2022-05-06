@@ -49,7 +49,7 @@ gcloud compute instances create "mhn-admin" ^
 
 #### After running these commands, we'll connect to our VM using SSH
 
-``` java
+``` javascript
 gcloud compute ssh mhn-admin
 ```
 
