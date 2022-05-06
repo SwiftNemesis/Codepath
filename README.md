@@ -8,8 +8,10 @@
 
 **Summary:** Today, we'll be using GCP to deploy a MHN-Admin Environment for our Honeypot.
 
+You can setup a free trial at: `https://cloud.google.com/compute`
+
 #### To start off, we'll be creating the open ports necessary to configure MHN Admin (WINDOWS GOOGLE CLOUD SDK)
-`In the case that you're using Linux, replace the "^" with "^"`
+`In the case that you're using Linux, replace the "^" with "\"`
 ```
 gcloud compute firewall-rules create http ^
     --allow tcp:80 ^
@@ -217,7 +219,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 `x.x.x.x is the honeypot ip address listed on GCP or the MHN-ADMIN Sensor panel`
 
 
-### Malware Capture and Identification (Optional)
+### Malware Capture and Identification
 
 #### X Malware
 
@@ -229,6 +231,13 @@ SHA1 Hash: *Run `sha1sum` on the file and record the hash here.*
 
 <img src="x-malware.gif">
 
-## Notes
+## Results from May 3rd-6th
+
+In the below image, we can see here how many different types of payloads that were delievered to my VM.
+It's intriguing to see how much automatic hacking there is out on the web. This does however make a great source 
+for research when it comes to figuring out how to deal with malware. It's an especially plentiful 
+source of data for research such as anti-malware software.
+
+<img src="payloadsReport.png>
 
 Describe any challenges encountered while doing the assignment.
