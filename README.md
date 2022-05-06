@@ -132,13 +132,37 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 <img src="dionaea-honeypot-sensor.gif">
 
 
-### Database Backup (Required) 
+### Database Backup
 
-**Summary:** What is the RDBMS that MHN-Admin uses? What information does the exported JSON file record?
+**Summary:** We will export the data records from the honeypots. It stores itself in a MongoDB format in a session.json file we will create.
 
-*Be sure to upload session.json directly to this GitHub repo/branch in order to get full credit.*
+#### First, we will SSH back into the mhn-admin VM
 
-### Deploying Additional Honeypot(s) (Optional)
+`gcloud compute ssh mhn-admin`
+
+#### Second, we will run this command to export the MongoDB information to a session.json file in our working directory
+
+	mongoexport --db mnemosyne --collection session > session.json
+
+#### Lastly, In order to get the session.json file on our computer, we will use SCP to transfer the file.
+
+`gcloud compute scp mhn-admin:~/session.json ./session.json`
+
+**IF THAT DOES NOT WORK, USE THE BELOW COMMAND**
+
+`gcloud compute scp mhn-admin:/home/"your username"/session.json ./session.json`
+
+#### In your Session.json file, the lines should look like this from the MongoDB
+
+```
+{"_id":{"$oid":"626f8a77616a1e65181af2e2"},"protocol":"pcap","hpfeed_id":{"$oid":"626f8a75616a1e65181af2e1"},"timestamp":{"$date":"2022-05-02T07:38:29.651Z"},"source_ip":"81.17.23.138","source_port":52835,"destination_port":81,"identifier":"c22872be-c9ea-11ec-a047-42010a8a0004","honeypot":"dionaea"}
+```
+
+#### Visual Example
+
+<img src=session-json-example.gif>
+
+### Deploying Additional Honeypots
 
 **Summary:** Now we are going to create two additional Honeypots. This is a pretty simple process
 
@@ -180,7 +204,7 @@ wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bas
 
 `x.x.x.x = The IP address of your MHN Admin VM`
 	
-#### Here is a visual example
+#### Visual Example
 
 <img src="x-honeypot.gif">
 
