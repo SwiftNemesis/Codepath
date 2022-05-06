@@ -2,7 +2,7 @@
 
 **Time spent:** **5** hours spent in total
 
-##For this Honeypot, we will be using Google Cloud Compute and the Google Cloud SDK on Windows.
+### For this Honeypot, we will be using Google Cloud Compute and the Google Cloud SDK on Windows.
 
 ### MHN-Admin Deployment
 
@@ -32,7 +32,7 @@ gcloud compute firewall-rules create hpfeeds ^
     --target-tags="mhn-admin"
 ```
 
-####Next we'll run the command that setups the VM in GCP
+#### Next we'll run the command that setups the VM in GCP
 
 ```
 gcloud compute instances create "mhn-admin" ^
@@ -47,13 +47,13 @@ gcloud compute instances create "mhn-admin" ^
     --boot-disk-device-name "mhn-admin"
 ```
 
-####After running these commands, we'll connect to our VM using SSH
+#### After running these commands, we'll connect to our VM using SSH
 
 ```
 gcloud compute ssh mhn-admin
 ```
 
-####Once we SSH into the VM, we're going to install the MHN Admin Application :)
+#### Once we SSH into the VM, we're going to install the MHN Admin Application :)
 	- First we will retrieve the latest packages using:
 	```
 		sudo apt update
@@ -69,10 +69,10 @@ gcloud compute ssh mhn-admin
 		
 		sudo ./install.sh
 	```
-####After this, it'll have you create give you "Y/N" prompts. Hit N for every single prompt.
+#### After this, it'll have you create give you "Y/N" prompts. Hit N for every single prompt.
 	- **Superuser Email:** Use Any Email.
 	- **Superuser password:** Use any password of your choosing.
-####As stated before, hit n for the rest of the prompts. This process should take anywhere from 5-15 minutes.
+#### As stated before, hit n for the rest of the prompts. This process should take anywhere from 5-15 minutes.
 ####Now you have created a mhn-admin VM and are ready to create the Honeypot :)
 <img src="mhn-admin.gif">
 
