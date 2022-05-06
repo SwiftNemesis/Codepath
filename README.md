@@ -76,6 +76,8 @@ gcloud compute ssh mhn-admin
 #### As stated before, hit n for the rest of the prompts. This process should take anywhere from 5-15 minutes.
 #### Now you have created a mhn-admin VM and are ready to create the Honeypot :)
 <img src="mhn-admin.gif">
+
+#### The below gif shows you how to access the MHN-Admin website console using the username and password you created.
 <img src="mhn-admin-website.gif">
 
 ### Dionaea Honeypot Deployment 
@@ -115,7 +117,7 @@ gcloud compute ssh mhn-admin
 
 #### Now we're going to install the honeypot application. 
 
-**In order to do so, we're going to use the "Ubuntu/Raspberry Pi - Dionaea" deploy command under Deploy on your MHN Server (Shown in the last gif)**
+**In order to do so, we're going to use the "Ubuntu/Raspberry Pi - Dionaea" deploy command under Deploy on your MHN Server**
 
 ##### Here is an example command:
 
