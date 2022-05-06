@@ -54,10 +54,10 @@ gcloud compute ssh mhn-admin
 ```
 
 #### Once we SSH into the VM, we're going to install the MHN Admin Application :)
-	- First we will retrieve the latest packages using:
+	First we will retrieve the latest packages using:
 		`sudo apt update`
 		`sudo apt install git python-magic -y`
-	- Second, we'll be pulling MHN from github and running the shell file
+	Second, we'll be pulling MHN from github and running the shell file
 		`cd /opt/`
 		`sudo git clone https://github.com/pwnlandia/mhn.git`
 		`cd mhn/`
@@ -66,8 +66,8 @@ gcloud compute ssh mhn-admin
 		
 		`sudo ./install.sh`
 #### After this, it'll have you create give you "Y/N" prompts. Hit N for every single prompt.
-	- **Superuser Email:** Use Any Email.
-	- **Superuser password:** Use any password of your choosing.
+	**Superuser Email:** Use Any Email.
+	**Superuser password:** Use any password of your choosing.
 #### As stated before, hit n for the rest of the prompts. This process should take anywhere from 5-15 minutes.
 #### Now you have created a mhn-admin VM and are ready to create the Honeypot :)
 <img src="mhn-admin.gif">
