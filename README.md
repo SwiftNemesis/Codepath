@@ -9,7 +9,7 @@
 **Summary:** Today, we'll be using GCP to deploy a MHN-Admin Environment for our Honeypot.
 
 #### To start off, we'll be creating the open ports necessary to configure MHN Admin (WINDOWS GOOGLE CLOUD SDK)
-`In the case that you're using Linux, replace the "^" with "\"`
+`In the case that you're using Linux, replace the "^" with "^"`
 ```
 gcloud compute firewall-rules create http ^
     --allow tcp:80 ^
@@ -80,8 +80,46 @@ gcloud compute ssh mhn-admin
 
 ### Dionaea Honeypot Deployment 
 
-**Summary:** Alongside the MHN-Admin, we'll be deploying a Dionaea Honeypot
+**Summary:** Alongside the MHN-Admin, we'll be deploying a Dionaea Honeypot. This Honeypot will collect malware and attack data through the MHN application through using all open ports.
 
+#### Lets create a honeypot tagged firewall with all open ports
+
+	gcloud compute firewall-rules create wideopen ^
+		--description="Allow TCP and UDP from Anywhere" ^
+		--direction ingress ^
+		--priority=1000 ^
+		--network=default ^
+		--action=allow ^
+		--rules=tcp,udp ^
+		--source-ranges=0.0.0.0/0 ^
+		--target-tags="honeypot"
+
+#### Now let's create the first honeypot
+
+	gcloud compute instances create "honeypot-1" ^
+		--machine-type "n1-standard-1" ^
+		--subnet "default" ^
+		--maintenance-policy "MIGRATE" ^
+		--tags "honeypot" ^
+		--image-family "ubuntu-minimal-1804-lts" ^
+		--image-project "ubuntu-os-cloud" ^
+		--boot-disk-size "10" ^
+		--boot-disk-type "pd-standard" ^
+		--boot-disk-device-name "honeypot-1"
+
+#### In order to access the newly created honeypot, you can do the same as before with SSH :)
+
+`gcloud compute ssh honeypot-1`
+
+#### Now we're going to install the honeypot application. In order to do so, we're going to use the "Ubuntu/Raspberry Pi - Dionaea" deploy command under Deploy on your MHN Server (Shown in the last gif)
+
+`Here is an example command:`
+	wget "http://x.x.x.x/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh
+`x.x.x.x = The IP address of your MHN Admin VM`
+
+#### Now that it's installed, look under the Sensors tab on your MHN-admin website. Honeypot-1 should appear
+
+<img src="dionaea-honeypot-sensor.gif">
 <img src="dionaea-honeypot.gif">
 
 ### Database Backup (Required) 
